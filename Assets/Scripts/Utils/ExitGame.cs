@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LerpHelper : MonoBehaviour
+public class ExitGame : MonoBehaviour
 {
-
-
-    private void Update()
+    public void Quit()
     {
-        
+        Application.Quit();
     }
 }
