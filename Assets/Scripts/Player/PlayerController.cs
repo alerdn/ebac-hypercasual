@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -24,9 +25,11 @@ public class PlayerController : Singleton<PlayerController>
     private bool _canRun;
     private float _currentSpeed;
     private bool _invencible;
+    private Vector3 _startPosition;
 
     private void Start()
     {
+        _startPosition = transform.position;
         ResetSpeed();
     }
 
@@ -71,7 +74,7 @@ public class PlayerController : Singleton<PlayerController>
     }
 
     #region POWER UP
-   private void SetPowerUpText(string t)
+    private void SetPowerUpText(string t)
     {
         uiTextPowerUp.text = t;
     }
@@ -94,6 +97,16 @@ public class PlayerController : Singleton<PlayerController>
         _invencible = b;
         if (b) SetPowerUpText("Invencible");
         else SetPowerUpText("");
+    }
+
+    public void ChangeHeight(float h, float animationDuration, Ease ease)
+    {
+        transform.DOMoveY(_startPosition.y + h, animationDuration).SetEase(ease);
+    }
+
+    public void ResetHeight(float animationDuration, Ease ease)
+    {
+        transform.DOMoveY(_startPosition.y, animationDuration).SetEase(ease);
     }
 
     #endregion
