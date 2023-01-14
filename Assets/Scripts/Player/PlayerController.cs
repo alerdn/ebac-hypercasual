@@ -112,6 +112,7 @@ public class PlayerController : Singleton<PlayerController>
     public void ChangeHeight(float h, float animationDuration, Ease ease)
     {
         transform.DOMoveY(_startPosition.y + h, animationDuration).SetEase(ease);
+        SetPowerUpText("Getting higher");
     }
 
     public void ResetHeight(float animationDuration, Ease ease)
@@ -122,6 +123,7 @@ public class PlayerController : Singleton<PlayerController>
     public void ChangeCoinCollectorSize(float amount)
     {
         coinCollector.transform.localScale = Vector3.one * amount;
+        if (amount > 1.5f) SetPowerUpText("Vacuuming coins");
     }
 
     #endregion

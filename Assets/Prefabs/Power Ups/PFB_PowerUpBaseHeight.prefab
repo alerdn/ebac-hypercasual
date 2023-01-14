@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1037754914456143740, guid: 052c42a91a6e2264a87e63670c72c122, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 007d705eb762ba94693445173f5137a0, type: 2}
     - target: {fileID: 1037754915211799809, guid: 052c42a91a6e2264a87e63670c72c122, type: 3}
       propertyPath: m_Name
       value: PFB_PowerUpBaseHeight
@@ -81,7 +85,7 @@ MonoBehaviour:
   graphicItem: {fileID: 3582686173523788665}
   audioSource: {fileID: 0}
   duration: 2
-  amountHeight: 5
+  amountHeight: 3
   animationDuration: 0.5
   inEase: 2
   outEase: 3

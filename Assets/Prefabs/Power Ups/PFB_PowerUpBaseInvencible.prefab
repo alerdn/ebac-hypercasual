@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1037754914456143740, guid: 052c42a91a6e2264a87e63670c72c122, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2313f4457df22e84ebb5bd429bf278bc, type: 2}
     - target: {fileID: 1037754915211799809, guid: 052c42a91a6e2264a87e63670c72c122, type: 3}
       propertyPath: m_Name
-      value: PFB_PowerUpBase
+      value: PFB_PowerUpBaseInvencible
       objectReference: {fileID: 0}
     - target: {fileID: 1037754915211799812, guid: 052c42a91a6e2264a87e63670c72c122, type: 3}
       propertyPath: m_RootOrder
