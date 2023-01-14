@@ -1,6 +1,7 @@
 using Ebac.Code;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
@@ -17,10 +18,12 @@ public class PlayerController : Singleton<PlayerController>
 
     [Header("UI")]
     public GameObject endScreen;
+    public TMP_Text uiTextPowerUp;
 
     private Vector3 _pos;
     private bool _canRun;
     private float _currentSpeed;
+    private bool _invencible;
 
     private void Start()
     {
@@ -43,7 +46,8 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (collision.transform.CompareTag(tagToCheckEnemy))
         {
-            EndGame();
+            if (!_invencible)
+                EndGame();
         }
     }
 
@@ -67,15 +71,29 @@ public class PlayerController : Singleton<PlayerController>
     }
 
     #region POWER UP
-    
+   private void SetPowerUpText(string t)
+    {
+        uiTextPowerUp.text = t;
+    }
+
+
     public void PowerUpSeedUp(float s)
     {
         _currentSpeed = s;
+        SetPowerUpText("Speeding up");
     }
 
     public void ResetSpeed()
     {
         _currentSpeed = speed;
+        SetPowerUpText("");
+    }
+
+    public void SetInvencible(bool b = true)
+    {
+        _invencible = b;
+        if (b) SetPowerUpText("Invencible");
+        else SetPowerUpText("");
     }
 
     #endregion
