@@ -73,7 +73,7 @@ public class PlayerController : Singleton<PlayerController>
     public void StartToRun()
     {
         _canRun = true;
-        animatorManager.Play(AnimatorManager.AnimationType.RUN);
+        animatorManager.Play(AnimatorManager.AnimationType.RUN, _currentSpeed / speed);
     }
 
     public void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE)

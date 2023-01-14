@@ -1932,7 +1932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ae04b6b830061498a2f38b242542f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   coinCollector: {fileID: 972336381}
   target: {fileID: 1410559712}
   lerpSpeed: 5
@@ -3057,10 +3057,13 @@ MonoBehaviour:
   animatorSetups:
   - type: 0
     trigger: idle
+    speed: 1
   - type: 1
     trigger: run
+    speed: 1
   - type: 2
     trigger: dead
+    speed: 1.5
 --- !u!1001 &1373503300
 PrefabInstance:
   m_ObjectHideFlags: 0
