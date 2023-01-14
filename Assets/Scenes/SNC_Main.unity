@@ -1940,6 +1940,7 @@ MonoBehaviour:
   tagToCheckEndLine: EndLine
   endScreen: {fileID: 276799107}
   uiTextPowerUp: {fileID: 181849053}
+  animatorManager: {fileID: 1353409178}
 --- !u!1001 &749820118
 PrefabInstance:
   m_ObjectHideFlags: 0
