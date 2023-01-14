@@ -8,6 +8,7 @@ using DG.Tweening;
 public class PlayerController : Singleton<PlayerController>
 {
     public float speed = 1f;
+    public GameObject coinCollector;
 
     [Header("Lerp")]
     public Transform target;
@@ -52,11 +53,7 @@ public class PlayerController : Singleton<PlayerController>
             if (!_invencible)
                 EndGame();
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.CompareTag(tagToCheckEndLine))
+        else if (collision.transform.CompareTag(tagToCheckEndLine))
         {
             EndGame();
         }
@@ -107,6 +104,11 @@ public class PlayerController : Singleton<PlayerController>
     public void ResetHeight(float animationDuration, Ease ease)
     {
         transform.DOMoveY(_startPosition.y, animationDuration).SetEase(ease);
+    }
+
+    public void ChangeCoinCollectorSize(float amount)
+    {
+        coinCollector.transform.localScale = Vector3.one * amount;
     }
 
     #endregion

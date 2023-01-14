@@ -29,10 +29,15 @@ public class ItemCollectableBase : MonoBehaviour
 
     protected virtual void Collect()
     {
-        graphicItem.SetActive(false);
+        HideItens();
         _collider.enabled = false;
-        Invoke(nameof(HideObject), timeToHide);
         OnCollect();
+    }
+
+    protected virtual void HideItens()
+    {
+        if (graphicItem != null) graphicItem.SetActive(false);
+        Invoke(nameof(HideObject), timeToHide);
     }
 
     private void HideObject()
