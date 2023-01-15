@@ -6,14 +6,12 @@ public class LevelManager : MonoBehaviour
 {
     public Transform container;
     public List<GameObject> levels;
-
-    [Header("Pieces")]
-    public List<LevelPieceBase> levelPieces;
-    public int piecesNumber = 5;
+    public List<LevelPieceBaseSetup> levelPieceBaseSetups;
 
     private int _index;
     private GameObject _currentLevel;
     private List<LevelPieceBase> _spawnedlevelPieces;
+    private LevelPieceBaseSetup _currSetup;
 
     private void Awake()
     {
@@ -54,13 +52,35 @@ public class LevelManager : MonoBehaviour
     {
         _spawnedlevelPieces = new List<LevelPieceBase>();
 
-        for (int i = 0; i < piecesNumber; i++)
+        if (_currSetup != null)
         {
-            CreateLevelPiece();
+            _index++;
+
+            if (_index >= levelPieceBaseSetups.Count)
+            {
+                ResetLevelIndex();
+            }
+        }
+
+        _currSetup = levelPieceBaseSetups[_index];
+
+        for (int i = 0; i < _currSetup.piecesStartNumber; i++)
+        {
+            CreateLevelPiece(_currSetup.levelStartPieces);
+        }
+
+        for (int i = 0; i < _currSetup.piecesNumber; i++)
+        {
+            CreateLevelPiece(_currSetup.levelPieces);
+        }
+
+        for (int i = 0; i < _currSetup.piecesEndNumber; i++)
+        {
+            CreateLevelPiece(_currSetup.levelEndPieces);
         }
     }
 
-    private void CreateLevelPiece()
+    private void CreateLevelPiece(List<LevelPieceBase> levelPieces)
     {
         var piece = levelPieces[Random.Range(0, levelPieces.Count)];
         var spawnedPiece = Instantiate(piece, container);
@@ -72,6 +92,16 @@ public class LevelManager : MonoBehaviour
         }
 
         _spawnedlevelPieces.Add(spawnedPiece);
+    }
+
+    private void CleanSpawnedPieces()
+    {
+        int count = _spawnedlevelPieces.Count;
+        
+        for (int i = 0; i < count; i++)
+        {
+            Destroy(_spawnedlevelPieces[i]);
+        }
     }
 
     #endregion
