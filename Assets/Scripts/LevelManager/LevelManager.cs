@@ -10,8 +10,8 @@ public class LevelManager : MonoBehaviour
 
     private int _index;
     private GameObject _currentLevel;
-    private List<LevelPieceBase> _spawnedlevelPieces;
-    private LevelPieceBaseSetup _currSetup;
+    public List<LevelPieceBase> _spawnedlevelPieces = new List<LevelPieceBase>();
+    public LevelPieceBaseSetup _currSetup;
 
     private void Awake()
     {
@@ -19,9 +19,14 @@ public class LevelManager : MonoBehaviour
         CreateLevelPieces();
     }
 
+    private void Start()
+    {
+        _index = 0;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A)) SpawnNexLevel();
+        if (Input.GetKeyDown(KeyCode.A)) CreateLevelPieces();
     }
 
     private void SpawnNexLevel()
@@ -50,7 +55,7 @@ public class LevelManager : MonoBehaviour
 
     private void CreateLevelPieces()
     {
-        _spawnedlevelPieces = new List<LevelPieceBase>();
+        CleanSpawnedPieces();
 
         if (_currSetup != null)
         {
@@ -91,17 +96,24 @@ public class LevelManager : MonoBehaviour
             spawnedPiece.transform.position = lastPiece.endPiece.position;
         }
 
+        foreach (var p in spawnedPiece.GetComponentsInChildren<ArtPiece>())
+        {
+            p.ChangePiece(ArtManager.Instance.GetSetupByType(_currSetup.artType).gameObject);
+        }
+
         _spawnedlevelPieces.Add(spawnedPiece);
     }
 
     private void CleanSpawnedPieces()
     {
-        int count = _spawnedlevelPieces.Count;
-        
-        for (int i = 0; i < count; i++)
+        Debug.Log(_spawnedlevelPieces.Count - 1);
+        for (int i = _spawnedlevelPieces.Count - 1; i >= 0; i--)
         {
-            Destroy(_spawnedlevelPieces[i]);
+            Debug.Log("Apagando");
+            Destroy(_spawnedlevelPieces[i].gameObject);
         }
+
+        _spawnedlevelPieces.Clear();
     }
 
     #endregion

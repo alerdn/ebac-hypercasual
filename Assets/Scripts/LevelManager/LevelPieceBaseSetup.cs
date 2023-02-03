@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelPieceBaseSetup : MonoBehaviour
+[CreateAssetMenu(menuName = "Level Piece Base Setup")]
+public class LevelPieceBaseSetup : ScriptableObject
 {
+    public ArtManager.ArtType artType;
+
     [Header("Pieces")]
     public List<LevelPieceBase> levelStartPieces;
     public List<LevelPieceBase> levelPieces;

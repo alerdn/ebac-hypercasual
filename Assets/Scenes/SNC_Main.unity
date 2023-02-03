@@ -123,6 +123,57 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &57617010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 57617012}
+  - component: {fileID: 57617011}
+  m_Layer: 0
+  m_Name: ArtManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &57617011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57617010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3f200279be7c847a5618bc6717c9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artSetups:
+  - artType: 0
+    gameObject: {fileID: 928070453780194957, guid: bf3289b79a8179042a942ea51d514784, type: 3}
+  - artType: 1
+    gameObject: {fileID: 487280226869991128, guid: 81cacf8e26009bb47a2e72b86d8af661, type: 3}
+  - artType: 2
+    gameObject: {fileID: 5157952978669501910, guid: 8a2b31d72b9b96b4b81298f6f4e47bc6, type: 3}
+--- !u!4 &57617012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57617010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &134139317 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5531986718136724959, guid: 89e20167823a30d459856414377997d1, type: 3}
@@ -1082,11 +1133,11 @@ MonoBehaviour:
   levels:
   - {fileID: 7487601899695772469, guid: 99a5bde4ed11ec740bb7d1f0f902ba8f, type: 3}
   - {fileID: 7487601899695772469, guid: 7f0328d23b76a6d4b9cb7c00154b4645, type: 3}
-  levelPieces:
-  - {fileID: 2227895098790459591, guid: 09d16c782d62a8546aed3403078c030b, type: 3}
-  - {fileID: 8079846848813414505, guid: ecb39ffe742aa3b4cbfc108a503dab11, type: 3}
-  - {fileID: 8291760286596607841, guid: 3007f8e21d7a1454585cec0288c9d65a, type: 3}
-  piecesNumber: 15
+  levelPieceBaseSetups:
+  - {fileID: 11400000, guid: 24332ffb46c807f47a1d9b5800e97284, type: 2}
+  - {fileID: 11400000, guid: 564d98703db25124f90ffb9cdf6689cf, type: 2}
+  _spawnedlevelPieces: []
+  _currSetup: {fileID: 0}
 --- !u!1 &781813274
 GameObject:
   m_ObjectHideFlags: 0
