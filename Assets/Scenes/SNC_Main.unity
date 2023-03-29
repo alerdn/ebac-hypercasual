@@ -158,7 +158,7 @@ MonoBehaviour:
   - artType: 1
     gameObject: {fileID: 487280226869991128, guid: 81cacf8e26009bb47a2e72b86d8af661, type: 3}
   - artType: 2
-    gameObject: {fileID: 5157952978669501910, guid: 8a2b31d72b9b96b4b81298f6f4e47bc6, type: 3}
+    gameObject: {fileID: 487280226869991128, guid: 81cacf8e26009bb47a2e72b86d8af661, type: 3}
 --- !u!4 &57617012
 Transform:
   m_ObjectHideFlags: 0
@@ -1130,12 +1130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 1832513164}
-  levels:
-  - {fileID: 7487601899695772469, guid: 99a5bde4ed11ec740bb7d1f0f902ba8f, type: 3}
-  - {fileID: 7487601899695772469, guid: 7f0328d23b76a6d4b9cb7c00154b4645, type: 3}
   levelPieceBaseSetups:
   - {fileID: 11400000, guid: 24332ffb46c807f47a1d9b5800e97284, type: 2}
   - {fileID: 11400000, guid: 564d98703db25124f90ffb9cdf6689cf, type: 2}
+  - {fileID: 11400000, guid: a921b942b00115f4aa0a9c44cdcb2560, type: 2}
   _spawnedlevelPieces: []
   _currSetup: {fileID: 0}
 --- !u!1 &781813274
@@ -1560,11 +1558,15 @@ MonoBehaviour:
   - artType: 0
     colors:
     - {r: 0.21916164, g: 0.2293451, b: 0.23584908, a: 0}
-    - {r: 0.8396226, g: 0.019802418, b: 0.7681388, a: 0}
+    - {r: 0.25743148, g: 0.6132076, b: 0.60354924, a: 0}
   - artType: 1
     colors:
     - {r: 0.8207547, g: 0.47956818, b: 0.096787095, a: 0}
     - {r: 0.04743683, g: 0.7735849, b: 0.18215905, a: 0}
+  - artType: 2
+    colors:
+    - {r: 0.17164661, g: 0.09803922, b: 0.81960785, a: 0}
+    - {r: 0.4433962, g: 0.14431292, b: 0.22223037, a: 0}
 --- !u!4 &1124265489
 Transform:
   m_ObjectHideFlags: 0

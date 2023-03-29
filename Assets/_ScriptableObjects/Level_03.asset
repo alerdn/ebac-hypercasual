@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce44bd483cbd3cb4ba907da4194b3f43, type: 3}
-  m_Name: Level_02
+  m_Name: Level_03
   m_EditorClassIdentifier: 
-  artType: 1
+  artType: 0
   levelStartPieces:
-  - {fileID: 9155780813066182005, guid: bf07a523b0e5ffd4b92525b729ea29e2, type: 3}
+  - {fileID: 4676987349705433659, guid: becf2aac3f1258249ae4834d43b8f12f, type: 3}
   - {fileID: 4162461983196680873, guid: 81c38d6a34ecf0447a2b515a3fb3d035, type: 3}
   levelPieces:
-  - {fileID: 8079846848813414505, guid: ecb39ffe742aa3b4cbfc108a503dab11, type: 3}
   - {fileID: 8291760286596607841, guid: 3007f8e21d7a1454585cec0288c9d65a, type: 3}
   - {fileID: 2886805547178171552, guid: 7523fa47d152daf4dafe42d7f65b5e4f, type: 3}
+  - {fileID: 3418636240495935898, guid: 88be133598f54124b95e4fc602085a7e, type: 3}
   levelEndPieces:
-  - {fileID: 6043644903938195480, guid: 3ee424163cf31eb42af2c631abcee4c2, type: 3}
+  - {fileID: 4689116427613988086, guid: 0b25e85896167a64b82566d452f12859, type: 3}
   - {fileID: 7003348231750616584, guid: 552d5764aaf64c446bc936e9996c8065, type: 3}
   piecesStartNumber: 1
   piecesNumber: 2

@@ -9,10 +9,10 @@ public class ArtManager : Singleton<ArtManager>
     {
         TYPE_01,
         TYPE_02,
-        BEACH,
-        SNOW
+        TYPE_03
     }
 
+    [NonReorderable]
     public List<ArtSetup> artSetups;
 
     public ArtSetup GetSetupByType(ArtType artType)

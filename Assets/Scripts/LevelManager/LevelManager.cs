@@ -1,11 +1,12 @@
+using Ebac.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
     public Transform container;
-    public List<GameObject> levels;
+    // public List<GameObject> levels;
     public List<LevelPieceBaseSetup> levelPieceBaseSetups;
 
     private int _index;
@@ -13,15 +14,15 @@ public class LevelManager : MonoBehaviour
     public List<LevelPieceBase> _spawnedlevelPieces = new List<LevelPieceBase>();
     public LevelPieceBaseSetup _currSetup;
 
-    private void Awake()
-    {
-        //SpawnNexLevel();
-        CreateLevelPieces();
-    }
-
     private void Start()
     {
+        CreateLevelPieces();
         _index = 0;
+    }
+
+    public void NextLevel()
+    {
+        CreateLevelPieces();
     }
 
     private void Update()
@@ -29,22 +30,22 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A)) CreateLevelPieces();
     }
 
-    private void SpawnNexLevel()
-    {
-        if (_currentLevel != null)
-        {
-            Destroy(_currentLevel);
-            _index++;
+    //private void SpawnNexLevel()
+    //{
+    //    if (_currentLevel != null)
+    //    {
+    //        Destroy(_currentLevel);
+    //        _index++;
 
-            if (_index >= levels.Count)
-            {
-                ResetLevelIndex();
-            }
-        }
+    //        if (_index >= levels.Count)
+    //        {
+    //            ResetLevelIndex();
+    //        }
+    //    }
 
-        _currentLevel = Instantiate(levels[_index], container);
-        _currentLevel.transform.localPosition = Vector3.zero;
-    }
+    //    _currentLevel = Instantiate(levels[_index], container);
+    //    _currentLevel.transform.localPosition = Vector3.zero;
+    //}
 
     private void ResetLevelIndex()
     {
@@ -108,10 +109,8 @@ public class LevelManager : MonoBehaviour
 
     private void CleanSpawnedPieces()
     {
-        Debug.Log(_spawnedlevelPieces.Count - 1);
         for (int i = _spawnedlevelPieces.Count - 1; i >= 0; i--)
         {
-            Debug.Log("Apagando");
             Destroy(_spawnedlevelPieces[i].gameObject);
         }
 

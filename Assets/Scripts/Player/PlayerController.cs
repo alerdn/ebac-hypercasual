@@ -61,7 +61,7 @@ public class PlayerController : Singleton<PlayerController>
         }
         else if (collision.transform.CompareTag(tagToCheckEndLine))
         {
-            EndGame();
+            NextLevel();
         }
     }
 
@@ -81,6 +81,13 @@ public class PlayerController : Singleton<PlayerController>
         _canRun = false;
         endScreen.SetActive(true);
         animatorManager.Play(animationType);
+    }
+
+    public void NextLevel()
+    {
+        transform.position = _startPosition;
+        ResetSpeed();
+        LevelManager.Instance.NextLevel();
     }
 
     #region POWER UP
