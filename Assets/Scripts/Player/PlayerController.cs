@@ -11,19 +11,22 @@ public class PlayerController : Singleton<PlayerController>
     public GameObject coinCollector;
 
     [Header("Lerp")]
-    public Transform target;
-    public float lerpSpeed = 1f;
+    [SerializeField] private Transform target;
+    [SerializeField] private float lerpSpeed = 1f;
 
     [Header("Tags")]
-    public string tagToCheckEnemy = "Enemy";
-    public string tagToCheckEndLine = "EndLine";
+    [SerializeField] private string tagToCheckEnemy = "Enemy";
+    [SerializeField] private string tagToCheckEndLine = "EndLine";
 
     [Header("UI")]
-    public GameObject endScreen;
-    public TMP_Text uiTextPowerUp;
+    [SerializeField] private GameObject endScreen;
+    [SerializeField] private TMP_Text uiTextPowerUp;
 
     [Header("Animation")]
-    public AnimatorManager animatorManager;
+    [SerializeField] private AnimatorManager animatorManager;
+    [SerializeField] private float _scaleDuration = .5f;
+    [SerializeField] private Ease _ease = Ease.OutBack;
+
 
     private Vector3 _pos;
     private bool _canRun;
@@ -36,6 +39,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         _startPosition = transform.position;
         _bounceHelper = GetComponent<BounceHelper>();
+        transform.DOScale(0, _scaleDuration).From().SetEase(_ease);
         ResetSpeed();
     }
 
@@ -98,11 +102,11 @@ public class PlayerController : Singleton<PlayerController>
     }
 
     #region POWER UP
+
     private void SetPowerUpText(string t)
     {
         uiTextPowerUp.text = t;
     }
-
 
     public void PowerUpSeedUp(float s)
     {

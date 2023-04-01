@@ -63,7 +63,7 @@ public class LevelManager : Singleton<LevelManager>
     private void CreateLevelPieces()
     {
         CleanSpawnedPieces();
-        CoinAnimatorManager.Instance.ClearCoins();
+        CollectableAnimatorManager.Instance.ClearCoins();
 
         if (_currSetup != null)
         {
@@ -109,7 +109,7 @@ public class LevelManager : Singleton<LevelManager>
             yield return new WaitForSeconds(_scaleTimeBetweenPieces);
         }
 
-        CoinAnimatorManager.Instance.StartAnimations();
+        CollectableAnimatorManager.Instance.StartAnimations();
     }
 
     private void CreateLevelPiece(List<LevelPieceBase> levelPieces)

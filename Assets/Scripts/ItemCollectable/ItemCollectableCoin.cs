@@ -8,11 +8,6 @@ public class ItemCollectableCoin : ItemCollectableBase
     public float lerp = 5f;
     public float minDistance = 1f;
 
-    private void Start()
-    {
-        CoinAnimatorManager.Instance.RegisterCoin(this);
-    }
-
     private void Update()
     {
         if (collected)
@@ -30,7 +25,6 @@ public class ItemCollectableCoin : ItemCollectableBase
     {
         base.OnCollect();
         collected = true;
-        PlayerController.Instance.Bounce();
     }
 
     protected override void Collect()

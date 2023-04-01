@@ -12,6 +12,6 @@ public class BounceHelper : MonoBehaviour
 
     public void Bounce()
     {
-        transform.DOScale(_scaleBounce, _scaleDuration).SetEase(_ease).SetLoops(2, LoopType.Yoyo);
+        transform.DOScale(_scaleBounce, _scaleDuration).SetEase(_ease).SetLoops(2, LoopType.Yoyo).OnComplete(() => transform.localScale = Vector3.one);
     }
 }

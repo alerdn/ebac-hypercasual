@@ -19,6 +19,11 @@ public class ItemCollectableBase : MonoBehaviour
         _collider = GetComponent<Collider>();
     }
 
+    private void Start()
+    {
+        CollectableAnimatorManager.Instance.RegisterCollectable(this);
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.CompareTag(compareTag))
@@ -49,5 +54,6 @@ public class ItemCollectableBase : MonoBehaviour
     {
         if (mParticleSystem != null) mParticleSystem.Play();
         if (audioSource != null) audioSource.Play();
+        PlayerController.Instance.Bounce();
     }
 }

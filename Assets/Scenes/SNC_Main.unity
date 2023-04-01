@@ -451,7 +451,7 @@ MonoBehaviour:
   _scaleDuration: 0.2
   _scaleTimeBetweenPieces: 0.1
   _ease: 27
-  _coins: []
+  _collectables: []
 --- !u!4 &283433690
 Transform:
   m_ObjectHideFlags: 0
@@ -732,7 +732,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470081626}
-  m_LocalRotation: {x: 0.1547678, y: -0.05603378, z: 0.008792495, w: 0.9863214}
+  m_LocalRotation: {x: 0.15476781, y: -0.05603378, z: 0.008792494, w: 0.9863214}
   m_LocalPosition: {x: 0.87999994, y: 0.35999942, z: -7.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1134,6 +1134,8 @@ MonoBehaviour:
   endScreen: {fileID: 276799107}
   uiTextPowerUp: {fileID: 181849053}
   animatorManager: {fileID: 1353409178}
+  _scaleDuration: 1
+  _ease: 27
 --- !u!114 &727589015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1502,7 +1504,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.1547678, y: -0.05603378, z: 0.008792495, w: 0.9863214}
+  m_LocalRotation: {x: 0.15476781, y: -0.05603378, z: 0.008792494, w: 0.9863214}
   m_LocalPosition: {x: 0.87999994, y: 0.35999942, z: -7.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
