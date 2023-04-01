@@ -8,15 +8,9 @@ public class ItemCollectableCoin : ItemCollectableBase
     public float lerp = 5f;
     public float minDistance = 1f;
 
-    protected override void OnCollect()
+    private void Start()
     {
-        base.OnCollect();
-        collected = true;
-    }
-
-    protected override void Collect()
-    {
-        OnCollect();
+        CoinAnimatorManager.Instance.RegisterCoin(this);
     }
 
     private void Update()
@@ -30,5 +24,17 @@ public class ItemCollectableCoin : ItemCollectableBase
                 Destroy(gameObject);
             }
         }
+    }
+
+    protected override void OnCollect()
+    {
+        base.OnCollect();
+        collected = true;
+        PlayerController.Instance.Bounce();
+    }
+
+    protected override void Collect()
+    {
+        OnCollect();
     }
 }

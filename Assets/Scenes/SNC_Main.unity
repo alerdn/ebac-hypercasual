@@ -419,6 +419,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &283433688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283433690}
+  - component: {fileID: 283433689}
+  m_Layer: 0
+  m_Name: CoinManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &283433689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283433688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5898cbe7f366b6a4c8a23ee9b327dd87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scaleDuration: 0.2
+  _scaleTimeBetweenPieces: 0.1
+  _ease: 27
+  _coins: []
+--- !u!4 &283433690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283433688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &368791451
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,8 +732,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470081626}
-  m_LocalRotation: {x: 0.15476781, y: -0.05603378, z: 0.008792494, w: 0.9863214}
-  m_LocalPosition: {x: 0.87999994, y: 0.35999942, z: -6.91}
+  m_LocalRotation: {x: 0.1547678, y: -0.05603378, z: 0.008792495, w: 0.9863214}
+  m_LocalPosition: {x: 0.87999994, y: 0.35999942, z: -7.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1010,6 +1058,7 @@ GameObject:
   - component: {fileID: 727589008}
   - component: {fileID: 727589013}
   - component: {fileID: 727589014}
+  - component: {fileID: 727589015}
   m_Layer: 0
   m_Name: Player Container
   m_TagString: Player
@@ -1038,7 +1087,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727589007}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.14, z: 0.81}
+  m_LocalPosition: {x: 0, y: -2.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1085,6 +1134,21 @@ MonoBehaviour:
   endScreen: {fileID: 276799107}
   uiTextPowerUp: {fileID: 181849053}
   animatorManager: {fileID: 1353409178}
+--- !u!114 &727589015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727589007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d417e3331387a24ca7070ee316e8c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scaleDuration: 0.05
+  _scaleBounce: 1.2
+  _ease: 1
 --- !u!1 &755621341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,6 +1198,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 24332ffb46c807f47a1d9b5800e97284, type: 2}
   - {fileID: 11400000, guid: 564d98703db25124f90ffb9cdf6689cf, type: 2}
   - {fileID: 11400000, guid: a921b942b00115f4aa0a9c44cdcb2560, type: 2}
+  _scaleDuration: 0.2
+  _scaleTimeBetweenPieces: 0.1
+  _ease: 27
   _spawnedlevelPieces: []
   _currSetup: {fileID: 0}
 --- !u!1 &781813274
@@ -1435,8 +1502,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.15476781, y: -0.05603378, z: 0.008792494, w: 0.9863214}
-  m_LocalPosition: {x: 0.87999994, y: 0.35999942, z: -6.91}
+  m_LocalRotation: {x: 0.1547678, y: -0.05603378, z: 0.008792495, w: 0.9863214}
+  m_LocalPosition: {x: 0.87999994, y: 0.35999942, z: -7.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -30,10 +30,12 @@ public class PlayerController : Singleton<PlayerController>
     private float _currentSpeed;
     private bool _invencible;
     private Vector3 _startPosition;
+    private BounceHelper _bounceHelper;
 
     private void Start()
     {
         _startPosition = transform.position;
+        _bounceHelper = GetComponent<BounceHelper>();
         ResetSpeed();
     }
 
@@ -63,6 +65,11 @@ public class PlayerController : Singleton<PlayerController>
         {
             NextLevel();
         }
+    }
+
+    public void Bounce()
+    {
+        _bounceHelper.Bounce();
     }
 
     private void MoveBack()

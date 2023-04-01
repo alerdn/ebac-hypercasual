@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Ebac.Core;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,11 @@ public class LevelManager : Singleton<LevelManager>
     public Transform container;
     // public List<GameObject> levels;
     public List<LevelPieceBaseSetup> levelPieceBaseSetups;
+
+    [Header("Animation")]
+    [SerializeField] private float _scaleDuration = .2f;
+    [SerializeField] private float _scaleTimeBetweenPieces = .1f;
+    [SerializeField] private Ease _ease = Ease.OutBack;
 
     private int _index;
     private GameObject _currentLevel;
@@ -57,6 +63,7 @@ public class LevelManager : Singleton<LevelManager>
     private void CreateLevelPieces()
     {
         CleanSpawnedPieces();
+        CoinAnimatorManager.Instance.ClearCoins();
 
         if (_currSetup != null)
         {
@@ -86,6 +93,23 @@ public class LevelManager : Singleton<LevelManager>
         }
 
         ColorManager.Instance.ChangeColorByType(_currSetup.artType);
+        StartCoroutine(ScalePiecesByTime());
+    }
+
+    private IEnumerator ScalePiecesByTime()
+    {
+        foreach (var piece in _spawnedlevelPieces)
+        {
+            piece.transform.localScale = Vector3.zero;
+        }
+
+        for (int i = 0; i < _spawnedlevelPieces.Count; i++)
+        {
+            _spawnedlevelPieces[i].transform.DOScale(1, _scaleDuration).SetEase(_ease);
+            yield return new WaitForSeconds(_scaleTimeBetweenPieces);
+        }
+
+        CoinAnimatorManager.Instance.StartAnimations();
     }
 
     private void CreateLevelPiece(List<LevelPieceBase> levelPieces)
