@@ -52,7 +52,12 @@ public class ItemCollectableBase : MonoBehaviour
 
     protected virtual void OnCollect()
     {
-        if (mParticleSystem != null) mParticleSystem.Play();
+        if (mParticleSystem != null)
+        {
+            mParticleSystem.transform.SetParent(null);
+            mParticleSystem.Play();
+        }
+
         if (audioSource != null) audioSource.Play();
         PlayerController.Instance.Bounce();
     }
