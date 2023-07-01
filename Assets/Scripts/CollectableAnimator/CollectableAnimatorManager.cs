@@ -53,6 +53,8 @@ public class CollectableAnimatorManager : Singleton<CollectableAnimatorManager>
 
     private void Sort()
     {
-        _collectables = _collectables.OrderBy((collectable) => Vector3.Distance(transform.position, collectable.transform.position)).ToList();
+        _collectables = _collectables
+            .FindAll((collectable) => collectable != null)
+            .OrderBy((collectable) => Vector3.Distance(transform.position, collectable.transform.position)).ToList();
     }
 }

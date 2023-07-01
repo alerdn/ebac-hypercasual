@@ -13,6 +13,7 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Lerp")]
     [SerializeField] private Transform target;
     [SerializeField] private float lerpSpeed = 1f;
+    [SerializeField] private Vector2 _limits = new(-4, 4);
 
     [Header("Tags")]
     [SerializeField] private string tagToCheckEnemy = "Enemy";
@@ -26,6 +27,9 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private AnimatorManager animatorManager;
     [SerializeField] private float _scaleDuration = .5f;
     [SerializeField] private Ease _ease = Ease.OutBack;
+
+    [Header("VFX")]
+    [SerializeField] private ParticleSystem _vfxDeath;
 
 
     private Vector3 _pos;
@@ -50,6 +54,9 @@ public class PlayerController : Singleton<PlayerController>
         _pos = target.position;
         _pos.y = transform.position.y;
         _pos.z = transform.position.z;
+
+        if (_pos.x < _limits.x) _pos.x = _limits.x;
+        else if (_pos.x > _limits.y) _pos.x = _limits.y;
 
         transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
         transform.Translate(_currentSpeed * Time.deltaTime * transform.forward);
@@ -92,6 +99,7 @@ public class PlayerController : Singleton<PlayerController>
         _canRun = false;
         endScreen.SetActive(true);
         animatorManager.Play(animationType);
+        _vfxDeath.Play();
     }
 
     public void NextLevel()
